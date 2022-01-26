@@ -37,25 +37,19 @@ const PostCreate: React.FC = () => {
             onSubmit={(value, actions) => handleSubmit(value.title, value.content, actions.resetForm)}
         >
             <Form>
-                <Stack direction='row'>
-                    <Field name='title'>
-                        {({ field }) => (
-                            <Input {...field} id='title' type='text' placeholder='Title...' />
-                        )}
-                    </Field>
-                </Stack>
-                <Stack direction='row'>
-                    <Field name='content'>
-                        {({ field }) => (
-                            <Textarea {...field} id='content' type='text' placeholder='Content...' />
-                        )}
-                    </Field>
-                </Stack>
-                <Stack direction='row'>
-                    <Button type='submit'>
-                        Submit
-                    </Button>
-                </Stack>
+                <Field name='title'>
+                    {({ field }) => (
+                        <Input {...field} id='title' type='text' placeholder='Title...' mb='2' />
+                    )}
+                </Field>
+                <Field name='content'>
+                    {({ field }) => (
+                        <Textarea {...field} id='content' type='text' placeholder='Content...' mb='2' />
+                    )}
+                </Field>
+                <Button type='submit' mb='2'>
+                    Submit
+                </Button>
             </Form>
         </Formik>
     )

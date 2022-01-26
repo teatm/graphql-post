@@ -29,7 +29,7 @@ export const Post = objectType({
         t.nonNull.string('content')
         t.list.field('comments', {
             type: 'Comment',
-            resolve(root, args, ctx) {
+            resolve(root, _, ctx) {
                 return ctx.prisma.comment.findMany({
                     where: {
                         postId: root.id,
