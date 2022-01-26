@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik'
-import { Stack, FormControl, Input, Button, Textarea } from '@chakra-ui/react'
+import { Stack, Input, Button, Textarea } from '@chakra-ui/react'
 import { gql, useMutation } from '@apollo/client'
 import { AllPostsQuery } from './PostList'
 
@@ -19,9 +19,6 @@ const PostCreate: React.FC = () => {
     })
 
     const handleSubmit = (title: string, content: string, resetForm: () => void) => {
-        console.log(title)
-        console.log(content)
-        content = "The pastry selection includes croissants, macarons, cupcakes, decorated sugar cookies, tarts, crepe cake and many seasonal offerings."
         if (!title) return
         createPost({
             variables: {
@@ -40,25 +37,19 @@ const PostCreate: React.FC = () => {
             onSubmit={(value, actions) => handleSubmit(value.title, value.content, actions.resetForm)}
         >
             <Form>
-                <Stack direction='row'>
-                    <Field name='title'>
-                        {({ field }) => (
-                            <Input {...field} id='title' type='text' placeholder='Title...' />
-                        )}
-                    </Field>
-                </Stack>
-                <Stack direction='row'>
-                    <Field name='content'>
-                        {({ field }) => (
-                            <Textarea {...field} id='content' type='text' placeholder='Content...' />
-                        )}
-                    </Field>
-                </Stack>
-                <Stack direction='row'>
-                    <Button type='submit'>
-                        Submit
-                    </Button>
-                </Stack>
+                <Field name='title'>
+                    {({ field }) => (
+                        <Input {...field} id='title' type='text' placeholder='Title...' mb='2' />
+                    )}
+                </Field>
+                <Field name='content'>
+                    {({ field }) => (
+                        <Textarea {...field} id='content' type='text' placeholder='Content...' mb='2' />
+                    )}
+                </Field>
+                <Button type='submit' mb='2'>
+                    Submit
+                </Button>
             </Form>
         </Formik>
     )

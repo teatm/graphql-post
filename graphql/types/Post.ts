@@ -1,4 +1,4 @@
-import { objectType, extendType, stringArg, nonNull } from 'nexus'
+import { objectType, extendType, stringArg, nonNull, queryType } from 'nexus'
 
 export const CreatePostMutation = extendType({
     type: 'Mutation',
@@ -27,11 +27,20 @@ export const Post = objectType({
         t.nonNull.int('id')
         t.nonNull.string('title')
         t.nonNull.string('content')
+        t.list.field('comments', {
+            type: 'Comment',
+            resolve(root, _, ctx) {
+                return ctx.prisma.comment.findMany({
+                    where: {
+                        postId: root.id,
+                    },
+                })
+            },
+        })
     },
 })
 
-export const PostsQuery = extendType({
-    type: 'Query',
+export const PostsQuery = queryType({
     definition(t) {
         t.nonNull.list.field('posts', {
             type: 'Post',

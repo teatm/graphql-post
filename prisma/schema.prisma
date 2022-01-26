@@ -14,7 +14,7 @@ model Post {
   id        Int       @id @default(autoincrement())
   title     String    @db.VarChar(100)
   content   String    @db.VarChar(500)
-  Comment   Comment[]
+  comments  Comment[]
   createdAt DateTime  @default(now()) @map(name: "created_at")
   updatedAt DateTime  @updatedAt @map(name: "updated_at")
 
@@ -25,7 +25,7 @@ model Comment {
   id        Int      @id @default(autoincrement())
   postId    Int      @map(name: "post_id")
   content   String   @db.VarChar(100)
-  Post      Post     @relation(fields: [postId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
 
