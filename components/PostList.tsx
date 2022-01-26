@@ -27,6 +27,7 @@ const PostList: React.FC = () => {
                 <Box
                   mt='1'
                   fontWeight='semibold'
+                  fontSize='30px'
                   as='h4'
                   lineHeight='tight'
                   isTruncated

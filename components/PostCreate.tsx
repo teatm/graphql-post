@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik'
-import { Stack, FormControl, Input, Button, Textarea } from '@chakra-ui/react'
+import { Stack, Input, Button, Textarea } from '@chakra-ui/react'
 import { gql, useMutation } from '@apollo/client'
 import { AllPostsQuery } from './PostList'
 
@@ -19,9 +19,6 @@ const PostCreate: React.FC = () => {
     })
 
     const handleSubmit = (title: string, content: string, resetForm: () => void) => {
-        console.log(title)
-        console.log(content)
-        content = "The pastry selection includes croissants, macarons, cupcakes, decorated sugar cookies, tarts, crepe cake and many seasonal offerings."
         if (!title) return
         createPost({
             variables: {

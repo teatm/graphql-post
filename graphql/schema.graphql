@@ -2,16 +2,24 @@
 ### Do not make changes to this file directly
 
 
+type Comment {
+  content: String!
+  id: Int!
+  postId: Int!
+}
+
 type Mutation {
   createPost(content: String!, title: String!): Post!
 }
 
 type Post {
+  comments: [Comment]
   content: String!
   id: Int!
   title: String!
 }
 
 type Query {
+  comments: [Comment]!
   posts: [Post]!
 }
