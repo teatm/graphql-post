@@ -3,6 +3,7 @@ Post-comment app which utilizes GraphQL queries for creation, listing, etc
 
 ## Setup
 
+```sh
 # clone git code
 git clone https://github.com/teatm/graphql-post.git
 
@@ -23,3 +24,4 @@ npx prisma studio
 
 (optional) access apollo studio
 http://localhost:3000/api/graphql
+```
