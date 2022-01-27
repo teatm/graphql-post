@@ -1,9 +1,6 @@
 {
   "name": "next-graphql-todo",
   "private": true,
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

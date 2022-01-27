@@ -10,9 +10,7 @@ export const AllPostsQuery = gql`
       title
       content
       comments {
-        id
         content
-        postId
       }
     }
   }
@@ -22,13 +20,10 @@ const PostList: React.FC = () => {
   const { data, loading, error } = useQuery(AllPostsQuery)
   const [show, setShow] = useState(false);
 
-
   const handleToggle = () => setShow(!show);
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message} </p>
-
-
 
   return (
     <List>

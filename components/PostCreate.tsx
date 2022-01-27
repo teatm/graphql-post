@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik'
-import { Stack, Input, Button, Textarea } from '@chakra-ui/react'
+import { Input, Button, Textarea } from '@chakra-ui/react'
 import { gql, useMutation } from '@apollo/client'
 import { AllPostsQuery } from './PostList'
 
